@@ -39,7 +39,6 @@ class Vampire2Game(BasicGame):
     def initializeProfile(self, directory: QDir, settings: mobase.ProfileSetting):
         # Create the mods directory if it doesn't exist
         modsPath = self.dataDirectory().absolutePath()
-        if not os.path.exists(modsPath):
-            os.mkdir(modsPath)
+        os.makedirs(modsPath, exist_ok=True)
 
         super().initializeProfile(directory, settings)
